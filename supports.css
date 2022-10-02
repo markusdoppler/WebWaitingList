@@ -1,0 +1,114 @@
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+body {
+   background: #050620;
+   background: radial-gradient(rgba(5,6,32,0.79), rgba(5,6,32,0.91));
+   color: #ecf0f1;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: 1.3rem;
+   margin: 0;
+   padding: 1em;
+   width: 100vw; 
+   height: 100vh; 
+   overflow: scroll; 
+}
+h1 {
+   margin: 0;
+   margin-bottom: 1em;
+}
+h2 {
+   margin-top: 2em;
+}
+ul:last-of-type {
+   padding-bottom: 50vh;
+}
+
+.toggle {
+   width: max-content;
+   padding: 0.5em;
+   border: 0.2em solid #ecf0f1;
+   border-radius: 0.3em;
+}
+.toggle > input { display: none; }
+.toggle > input + label { padding: 0.3em; border-radius: 0.3em; cursor: pointer; }
+.toggle > input:checked + label { background-color: #050620; }
+
+.support-list {
+   list-style: none;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+   grid-gap: 1em;
+   padding: 0;
+}
+.support-list li {
+   position: relative;
+}
+.support-list li.show-support::before {
+   content: "";
+   display: inline-block;
+   width: 1em;
+   height: 1em;
+   border-radius: 0.1em;
+   background-color: crimson;
+   margin-right: 1ch;
+   position: absolute;
+   top: 0.1em;
+   left: -1.5em;
+}
+.support-list li.show-support.supported::before { background-color: greenyellow; }
+
+.support-list li.show-support {
+   margin-left: 1.5em;
+}
+.support-list li:not(.show-support) {
+   margin-left: 3.5em;
+}
+
+.support-list .label {
+   content: attr(data-label);
+   display: none;
+   padding: 0.3em 0.6em;
+   background-color: lightgrey;
+   color: black;
+   font-size: 0.5em;
+   border-radius: 0.3em;
+   display: inline-block;
+   width: 6em;
+   height: 3em;
+   border-radius: 0.2em;
+   background-color: lightgray;
+   position: absolute;
+   top: 0.1em;
+   left: -7em;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+.support-list li:not(.show-support).canuse .label { display: inline-flex; }
+.support-list li.show-support .label { display: none; }
+
+.support-list .label.waiting-on-support { background-color: darkred; }
+.support-list .label.waiting            { background-color: lightcoral; }
+.support-list .label.use-carefully      { background-color: khaki; }
+.support-list .label.can-use            { background-color: green; }
+
+.support-list li small {
+   display: block;
+   opacity: 0.5;
+}
+
+code {
+   padding: 0.2em;
+   background-color: rgba(0,0,0,0.3);
+   color: white;
+   font-size: 0.8em;
+   border-radius: 0.3em;
+}
+
+th, td {
+   padding: 1em;
+   text-align: center;
+}
+

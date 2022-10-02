@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Browser Support</title>
+   <link rel="stylesheet" href="supports.css">
+</head>
+<body>
+   <h1>Browser Support</h1>
+   <div class="toggle">
+      <input type="radio" name="toggle-greenlight" id="toggle-can-use" checked><label for="toggle-can-use">Can I Use?</label>
+      <input type="radio" name="toggle-greenlight" id="toggle-support"><label for="toggle-support">Support</label>
+   </div>
+
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Browser</th>
+            <th>Edge (Chromium)</th>
+            <th>Firefox</th>
+            <th>Chrome</th>
+            <th>Safari</th>
+            <th>Mobile Chrome</th>
+            <th>Mobile Safari</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>Version</td>
+            <td><mark>79</mark></td>
+            <td>75</td>
+            <td>79</td>
+            <td>13</td>
+            <td><mark>Android 10</mark></td>
+            <td><mark>iOS 13.2</mark> (<mark>iOS 14 for <code>:is()</code>, <code>:where()</code></mark>)</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <h2>HTML</h2>
+   <ul class="support-list html-support"></ul>
+
+
+   <h2>JavaScript</h2>
+   <ul class="support-list js-support"></ul>
+
+
+   <h2>CSS</h2>
+   <ul class="support-list css-support"></ul>
+
+
+   <h2>Browser Details</h2>
+   <ul class="support-list browser-details"></ul>
+
+   <script src="supports.js"></script>
+</body>
+</html>
