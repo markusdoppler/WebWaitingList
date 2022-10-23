@@ -94,6 +94,40 @@ supported.js.domPoint = {
    description: "<code>DOMPoint</code> and <code>DOMMatrix</code>",
    canuse: 2,
 };
+supported.js.intersectionObserver = {
+   supported: "IntersectionObserver" in window,
+   description: "Intersection Observer",
+   browser: "Safari 12.1",
+   canuse: 2,
+};
+supported.js.resizeObserver = {
+   supported: "ResizeObserver" in window,
+   description: "Resize Observer",
+   browser: "Safari 13.1",
+   canuse: 2,
+   label: "",
+};
+supported.js.stringMatchAll = {
+   supported: String.prototype.matchAll,
+   description: "String.matchAll()",
+   browser: "Safari 13, Chrome 73",
+   canuse: 2,
+   label: "",
+};
+supported.js.stringReplaceAll = {
+   supported: String.prototype.replaceAll,
+   description: "String.replaceAll()",
+   browser: "Safari 13.4, Chrome 85",
+   canuse: 2,
+   label: "",
+};
+supported.js.promiseAny = {
+   supported: typeof Promise.any === "function",
+   description: "Promise.any()",
+   browser: "Safari 14",
+   canuse: 0,
+   label: "waiting",
+};
 supported.js.optionalChaining = {
    supported: false,
    description: "Optional Chaining (<code>object?.property</code>)",
@@ -206,8 +240,8 @@ supported.css.woff2 = {
 supported.css.marker = {
    supported: CSS.supports('selector(::marker)'),
    description: "::marker",
-   browser: "Safari 11.1, Chrome 86, Samsung Internet 14, Firefox 68",
-   canuse: 2,
+   browser: "Safari 11.1, Chrome 86, Samsung Internet 14, Firefox 68; not in iOS Safari!!",
+   canuse: 1,
 };
 supported.css.envVariables = {
    supported: CSS.supports('margin-bottom: env(safe-area-inset-bottom)'),
@@ -250,11 +284,45 @@ supported.css.backdropFilter = {
 };
 supported.css.displayContents = {
    supported: CSS.supports('display: contents'),
-   description: "display: contents",
+   description: "<code>display: contents</code>",
    browser: "Chrome 89, Safari 11.1, Firefox 62",
    canuse: 1,
    label: "begin using",
 };
+supported.css.systemUI = {
+   supported: document.fonts.check('12px system-ui'),
+   description: "<code>font-family: system-ui</code>",
+   browser: "",
+   canuse: 2,
+   label: "use",
+};
+supported.css.uiRounded = {
+   supported: document.fonts.check('12px ui-rounded'),
+   description: "<code>font-family: ui-rounded</code>",
+   browser: "Safari; no other?",
+   canuse: 1,
+   label: "?",
+};
+supported.css.uiSerif = {
+   supported: document.fonts.check('12px ui-serif'),
+   description: "<code>font-family: ui-serif</code>",
+   browser: "Safari; no other?",
+   canuse: 1,
+   label: "?",
+};
+supported.css.scrollSnapType = {
+   supported: CSS.supports('scroll-snap-type: x mandatory'),
+   description: `Scroll Snap`,
+   browser: "Safari 11, Chrome 69, Edge 79, Firefox 68",
+   canuse: 2,
+ };
+ supported.css.scrollSnapStop = {
+   supported: CSS.supports('scroll-snap-stop: always'),
+   description: `<code>scroll-snap-stop</code>`,
+   browser: "Safari 15",
+   canuse: 0,
+   label: "waiting"
+ };
 supported.css.backdrop = {
    supported: CSS.supports('selector(::backdrop)'),
    description: "::backdrop",
@@ -271,10 +339,10 @@ supported.css.touchAction = {
 supported.css.clipPathPath = {
    supported: CSS.supports('clip-path: path("M 0 0 L 100 0 L 100 100")'),
    description: `clip-path: path("M 0 0 L 100 0 L 100 100")`,
-   browser: "Chrome 88, Safari 13.1",
+   browser: "Chrome 88, Safari 13.1 (-webkit-: Safari 10)",
    canuse: 2,
-   label: ""
-};
+   label: "use with -webkit"
+ };
 supported.css.clamp = {
    supported: CSS.supports('font-size', 'clamp(1rem, 5vw, 2rem)'),
    description: "clamp(1rem, 5vw, 2rem)",
@@ -315,6 +383,12 @@ supported.css.accentColor = {
    browser: "Safari 15.4",
    canuse: 1,
    label: "begin using"
+};
+supported.css.modal = {
+   supported: CSS.supports('selector(:modal)'),
+   description: "<code>:modal</code>",
+   browser: "Safari 15.6, Chrome 105, Firefox 103",
+   canuse: 1,
 };
 
 // waiting
