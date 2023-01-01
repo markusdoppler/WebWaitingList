@@ -85,6 +85,13 @@ avifIMG.onload = function () { supported.html.avif.supported = (avifIMG.width > 
 avifIMG.onerror = function () { supported.html.avif.supported = false }
 avifIMG.src = "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A="
 
+supported.html.inert = {
+   supported: "inert" in document.documentElement,
+   description: "<code>inert</code>",
+   browser: "Safari 15.5, Chrome 102; waiting on Firefox",
+   canuse: 1,
+   label: "use",
+};
 
 
 // JS
@@ -127,6 +134,13 @@ supported.js.promiseAny = {
    browser: "Safari 14",
    canuse: 0,
    label: "waiting",
+};
+supported.js.promiseAllSettled = {
+   supported: typeof Promise.allSettled === "function",
+   description: "Promise.allSettled()",
+   browser: "Safari 13",
+   canuse: 1,
+   label: "begin using",
 };
 supported.js.optionalChaining = {
    supported: false,
@@ -441,6 +455,13 @@ supported.css.scrollBehaviorSmooth = {
    canuse: 1,
    label: "begin using",
 };
+supported.css.mask = {
+   supported: CSS.supports('mask: url(#image)'),
+   description: `mask: url(#image);`,
+   browser: "Firefox 53, Safari 15.4; waiting on Chrome",
+   canuse: 2,
+   label: "use with -webkit",
+};
 supported.css.offsetPath = {
    supported: CSS.supports('offset-path: path("M 0 0 L 100 0 L 100 100")'),
    description: `Motion Path (<code>offset-path: path("M 0 0 L 100 0 L 100 100")</code>`,
@@ -486,6 +507,13 @@ supported.css.keyboardAPI = {
 supported.css.scrollTimeline = {
    supported: false,
    description: "<code>@scroll-timeline</code>",
+   browser: "... waiting on all major browsers",
+   canuse: -1,
+   label: "awaiting support",
+};
+supported.css.nest = {
+   supported: false,
+   description: "<code>@nest</code>",
    browser: "... waiting on all major browsers",
    canuse: -1,
    label: "awaiting support",
